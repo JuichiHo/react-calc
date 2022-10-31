@@ -1,38 +1,251 @@
 .App {
-  text-align: center;
+  width: 100vw;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
+/* ============================================= */
+.shadowPref {
+  position: absolute;
+  top: 90%;
+  left: 0;
+
+  width: 95%;
+  
+  border: 1px solid black;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+
+}
+
+/* ============================================= */
+
+.Calculator {
+  position: absolute;
+  top: 200px;
+  left: 100px;
+
+  width: 462px;
+  height: 645px;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  border-width: 1px;
+  border-color: rgb(0, 0, 0);
+  border-radius: 9px;
+  border-style: solid;
+  /* box-shadow: inset 1px 1px 0px 0px rgba(255, 255, 255, 0.4), inset -1px -1px 0px 0px rgba(255, 255, 255, 0.4); */
+
+  background-color: rgb(42, 43, 44);
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+/* ============================================= */
+.dragWrapper {
+  border-radius: inherit;
+}
+
+/* ============================================= */
+.Calculator::before {
+  border-radius: 9px;
+  content: '';
+  box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* ============================================= */
+
+.TopBar {
+  width: 100%;
+  height: 44px;
+  /* flex-grow: 7; */
+
+  /* padding-left: 3.4%; */
+  padding-left: 16px;
+
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  background-color: rgb(42, 43, 44);
+  color: white;
+
+  border-bottom: 1px red;
+  box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dot {
+  width: 23px;
+  height: 23px;
+  /* width: 4.5%; */
+  /* height: 54.5%; */
+  /* aspect-ratio: 1/1; */
+
+  /* margin-right: 3.4%; */
+  /* margin-top: 2.2%; */
+  margin-right: 16.5px;
+  margin-top: 10px;
+  border-radius: 47%;
+
+  background-color: rgb(75, 77, 76);
+}
+
+#red.dot {
+  background-color: rgb(252, 91, 87);
+}
+#yellow.dot {
+  background-color: rgb(229, 191, 60);
+}
+#green.dot {
+  background-color: rgb(87, 192, 56);
+}
+
+.dragDropZone {
+  width: 100%;
+  height: 100%;
+
+  background-color: blue;
+}
+
+/* ============================================= */
+
+.display {
+  width: 90%;
+  height: 115px;
+  /* flex-grow: 18; */
+
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-bottom: 2px;
+
+  font-size: 100px;
+  font-weight: 100;
+
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  background-color: rgb(42, 43, 44);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* .display:before {
+  width: 100%;
+  height: inherit;
+  content: '';
+  box-shadow: inset 0px 0 0px 24px rgba(0, 255, 0, 0.4);
+  position: absolute;
+  top: 44px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+
+} */
+
+/* .displayedValue {
+
+
+} */
+
+/* ============================================= */
+
+.keyboard {
+  width: 100%;
+  height: 483px;
+
+  font-size: 45px;
+  font-weight: 900;
+
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  background-color: rgb(94, 94, 96);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.keyRow {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.btnSmall {
+  width: 25%;
+  height: 97px;
+  /* height: 100%; */
+  /* flex-grow: 2; */
+
+  border: 1px solid rgb(42, 43, 46);
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(94, 94, 96);
+  color: white;
+}
+
+.btnBig {
+  width: 50%;
+  height: 97px;
+  /* height: 100%; */
+  /* flex-grow: 2; */
+
+  border: 1px solid rgb(42, 43, 46);
+  border-bottom-left-radius: 8px;
+  border-bottom: none;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(94, 94, 94);
+  color: white;
+}
+
+#keyRow0 > .btnSmall:nth-child(-n + 3) {
+  background-color: rgb(62, 63, 64);
+}
+
+#keyRow4 > .btnSmall:last-child {
+  border-bottom-right-radius: 8px;
+}
+
+#keyRow4 > .btnSmall {
+  border-bottom: none;
+}
+
+.btnSmall:last-child {
+  background-color: rgb(255, 159, 12);
+  border-right: none;
+}
+
+.btnBig,
+.btnSmall:hover {
+  cursor: pointer;
 }
